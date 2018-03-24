@@ -49,7 +49,7 @@ endfunction
 
 function! s:detect_funcbody_synname() abort
   let synnames = map(synstack(line('.'), col('.')), {_, id -> synIDattr(id, 'name')})
-  for re in ['funcblock', 'funcbody', 'functionblock', 'functionbody', 'methodblock', 'block', 'brace']
+  for re in ['luafunc', 'funcblock', 'funcbody', 'functionblock', 'functionbody', 'methodblock', 'block', 'brace']
     for name in synnames
       if name =~? re
         return name
